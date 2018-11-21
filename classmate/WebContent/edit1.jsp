@@ -24,16 +24,54 @@
 <link rel="stylesheet" type="text/css" href="css/search.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="icon" href="images/icon.png">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
 <title>修改</title>
 </head>
 <body>
 
 <%
     //接收URL传递来的参数
+    request.setCharacterEncoding("gbk");
     String id1 = request.getParameter("s");
+	String name = request.getParameter("v_name");
+	String address=request.getParameter("v_address");
+	String qq=request.getParameter("v_qq");
+	String wechat=request.getParameter("v_wechat");
+	String class1=request.getParameter("i_class");
+	String log=request.getParameter("v_log");
+	String phone=request.getParameter("v_phone");
+	if(name=="")
+	{
+	name=request.getParameter("name");
+	}
+	if(address=="")
+	{
+	address=request.getParameter("address");
+	}
+	if(qq=="")
+	{
+	address=request.getParameter("qq");
+	}
+	if(wechat=="")
+	{
+	address=request.getParameter("wechat");
+	}
+	if(class1=="")
+	{
+	class1=request.getParameter("class");
+	}
+	if(log=="")
+	{
+	log=request.getParameter("log");
+	}
+	if(phone=="")
+	{
+	phone=request.getParameter("phone");
+	}
 	int id=Integer.valueOf(id1);
-	System.out.print(id);
+	int class2=Integer.valueOf(class1);
+	System.out.print(name);
+	
 %>
 <%request.setCharacterEncoding("gbk");%>
 	<jsp:useBean id="bean2" class="com.bean.classmate.bean" scope="page"></jsp:useBean>
@@ -71,7 +109,7 @@
           
         
 	
-	<%
+<% 
 	try
 	{
 			Connection conn =connector.getconn();
@@ -79,19 +117,18 @@
 			
 			// 获取PreparedStatement
 			PreparedStatement ps = conn.prepareStatement(sql);
-			System.out.println(bean2.getV_name());
+			System.out.println(name);
 			// 对SQL语句中的第1个参数赋值
-			ps.setString(1, bean2.getV_name());
-			System.out.println(bean2.getV_name());
+			ps.setString(1,name);
 			// 对SQL语句中的第2个参数赋值
-			ps.setString(2, bean2.getV_qq());
+			ps.setString(2, qq);
 			// 对SQL语句中的第3个参数赋值
-			ps.setString(3,bean2.getV_wechat());
+			ps.setString(3,wechat);
 			// 对SQL语句中的第4个参数赋值
-			ps.setString(4,bean2.getV_address());
-			ps.setString(5,bean2.getV_phone());
-			ps.setInt(6,bean2.getI_class());
-			ps.setString(7,bean2.getV_log());
+			ps.setString(4,address);
+			ps.setString(5,phone);
+			ps.setInt(6,class2);
+			ps.setString(7,log);
 			ps.setInt(8,id);
 			//ps.setString(8, bean2.getV_name());
 			// 执行更新操作，返回所影响的行数

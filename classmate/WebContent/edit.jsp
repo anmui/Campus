@@ -152,7 +152,6 @@
 </script>
 -->
 
-
 <button type="button" class="form_opener"><i class="fa fa-bars"></i></button>
 <div class="tp_overlay">
   <div class="topbar clearfix text-center">
@@ -219,10 +218,17 @@
         </div>
       </div>
     </div>
-     <input type="hidden" name="s" value="${requestScope.list.i_id}">
+    <input type="hidden" name="s" value="${requestScope.list.i_id}">
+     <input type="hidden" name="name" value="${requestScope.list.v_name}">
+     <input type="hidden" name="address" value="${requestScope.list.v_address}">
+     <input type="hidden" name="qq" value="${requestScope.list.v_qq}">
+     <input type="hidden" name="wechat" value="${requestScope.list.v_wechat}">
+     <input type="hidden" name="class" value="${requestScope.list.i_class}">
+      <input type="hidden" name="log" value="${requestScope.list.v_log}">
+      <input type="hidden" name="phone" value="${requestScope.list.v_phone}">
       <div class="row">
       <div class="col-md-11 col-sm-5 col-xs-4 text-right form-group top30">
-         <button type="submit" class="border_radius btn-yellow text-uppercase" onclick="go();">ÐÞ¸Ä</button>
+         <button type="submit" class="border_radius btn-yellow text-uppercase">ÐÞ¸Ä</button>
       </div>
     </div>
 </div>
